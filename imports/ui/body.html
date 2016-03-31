@@ -1,21 +1,23 @@
+<!-- In this body.html template we are calling the task-item.js file/template where events are located. If user checks event is triggered for crossing out item, if delete button used item is removed, importing this tempalte to the body template allows user to add, update, remove, delete items-->
 <body>
-  <div class="container">
-    <header>
-      <h1>Live Simply</h1>
+    <div class="container">
+        <header>
+            <h1>Live Simply</h1>
  
-      <form class="new-task">
-        <input type="text" name="text" placeholder="Type to add new tasks" />
-      </form>
-    </header>
+                <form class="new-task">
+                    <input type="text" name="text" placeholder="Type to add new tasks" />
+                </form><!--// end form-->
+        </header><!--// end header-->
  
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
-  </div>
-</body>
- 
+            <ul>
+                {{#each tasks}}
+                    {{> task}}
+                {{/each}}
+            </ul><!--// end list-->
+    </div><!--// end container-->
+</body><!--//end body-->
+
+ <!-- tasks-items.js template-->
 <template name="tasks-item">
   <li>{{text}}</li>
 </template>

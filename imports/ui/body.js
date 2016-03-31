@@ -1,8 +1,10 @@
 
 import { Tasks } from '../api/tasks.js';
 
-import './tasks-item.js';
+// importing task-items template
+import './task-items.js';
 
+//importing body.html template 
 import './body.html';
  
 Template.body.helpers({
@@ -12,6 +14,8 @@ Template.body.helpers({
   },
 });
 
+// Task Events 
+
 Template.body.events({
   'submit .new-task'(event) {
     // Prevent default browser form submit
@@ -20,7 +24,8 @@ Template.body.events({
     // Get value from form element
     const target = event.target;
     const text = target.text.value;
- 
+    //console.log(event); display each item details
+ 	console.log(event);
     // Insert a task into the collection
     Tasks.insert({
       text,

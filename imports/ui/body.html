@@ -1,9 +1,16 @@
+
+
+
+
 <!-- In this body.html template we are calling the task-item.js file/template where events are located. If user checks event is triggered for crossing out item, if delete button used item is removed, importing this tempalte to the body template allows user to add, update, remove, delete items-->
 <body>
     <div class="container">
         <header>
-            <h1>Live Simply</h1>
- 
+            <h1>Live Simply({{incompleteCount}})</h1>
+                <label class="hide-completed">
+                    <input type="checkbox" />
+                    Hide Completed Taks
+                </label>
                 <form class="new-task">
                     <input type="text" name="text" placeholder="Type to add new tasks" />
                 </form><!--// end form-->

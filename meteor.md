@@ -58,3 +58,27 @@ Inside of body.html file add
   <li>{{text}}</li>
 </template>
 </code>
+
+
+
+
+
+
+
+
+--full stack web pramework 
+--using same api on the client and sever and get data the same way 
+    --same api front and backend 
+
+--meteor single page app but meteor does the same but it has backend but angular doesnt have backend 
+
+--concept of request the subsciption --you are subscirpting to things on the server that is givng you info about client side 
+
+--meteor is single page app 
+--metoer also has database everyhwere 
+--meteor mini mingo where sits in broswer meemory but youc an ask for data right here in browswer 
+
+--any data you want for client side you have it but if you make changes logcally metoer continiusllay updtates to the backend 
+
+--CREATE COLLECTION: MONGO DB 
+outside client and sever 

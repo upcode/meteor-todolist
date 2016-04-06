@@ -1,24 +1,18 @@
-
+import { Template } from 'meteor/templating';
+ 
 import { Tasks } from '../api/tasks.js';
 
-// importing task-items template
-import './task-items.js';
+import './task.js';
 
-//importing body.html template 
 import './body.html';
  
-
-
-
-
 Template.body.helpers({
   tasks() {
-   // Show newest tasks at the top
+    // Show newest tasks at the top
     return Tasks.find({}, { sort: { createdAt: -1 } });
   },
 });
-
-// Task Events 
+ 
 
 Template.body.events({
   'submit .new-task'(event) {
@@ -28,8 +22,7 @@ Template.body.events({
     // Get value from form element
     const target = event.target;
     const text = target.text.value;
-    //console.log(event); display each item details
- 	console.log(event);
+ 
     // Insert a task into the collection
     Tasks.insert({
       text,
@@ -39,5 +32,4 @@ Template.body.events({
     // Clear form
     target.text.value = '';
   },
-
 });

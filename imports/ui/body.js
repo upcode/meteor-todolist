@@ -1,19 +1,37 @@
 import { Template } from 'meteor/templating';
- 
+ import { ReactiveDict } 'meteor/reactive-dict';
 import { Tasks } from '../api/tasks.js';
 
 import './task.js';
 
 import './body.html';
- 
+
+<!--// ReactiveDict STORE STATE //-->
+
+Template.body.onCreated(function bodyOnCreated(){
+  this.state = new ReactiveDict();
+});
+
+<!--// HELPERS //-->
+
 Template.body.helpers({
   tasks() {
-    // Show newest tasks at the top
+
+    //fliters tasks if the checkbox is checked 
+
+    const instance = Template.instance();
+    if (instance.state.get('hideCompleted')) {
+      // If hide completed is checked, filter tasks 
+      return Task.find({ checked: { $ne: true }}, { sort: { createdAt: -1}});
+    }
+    // otherwise, return all the tasks
     return Tasks.find({}, { sort: { createdAt: -1 } });
   },
 });
  
 
+
+<!--// EVENTS //-->
 Template.body.events({
   'submit .new-task'(event) {
     // Prevent default browser form submit
@@ -31,5 +49,8 @@ Template.body.events({
  
     // Clear form
     target.text.value = '';
+  },
+  'change .hide-completed input'(event, instance) {
+    instance.state.set('hideCompleted', event.target.checked);
   },
 });

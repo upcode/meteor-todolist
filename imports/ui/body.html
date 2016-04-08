@@ -1,18 +1,25 @@
 <body>
   <div class="container">
     <header>
-      <h1>Todo List</h1>
+      <h1>..Live Simply..</h1>
+      <small>To-Do List</small>
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+
       <form class="new-task">
         <input type="text" name="text" placeholder="Type to add new tasks" />
-      </form>
-    </header>
+      </form><!--// end form-->
+      
+    </header><!--// end header-->
     
- 
     <ul>
       {{#each tasks}}
         {{> task}}
       {{/each}}
     </ul>
+
   </div>
 </body>
  
